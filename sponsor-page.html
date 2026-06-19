@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sponsor {{PLAYER_NAME}} | {{TEAM_NAME}}</title>
+  <meta name="description" content="Sponsor {{PLAYER_NAME}} for {{TEAM_NAME}}. View the fundraiser goal, bank transfer details, and sponsor form in one place.">
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=zodiak@500,700&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
+      --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem;
+      --space-12: 3rem; --space-16: 4rem;
+      --color-bg: #f7f6f2;
+      --color-surface: #f9f8f5;
+      --color-surface-2: #fbfbf9;
+      --color-surface-offset: #f3f0ec;
+      --color-border: #d4d1ca;
+      --color-divider: #dcd9d5;
+      --color-text: #28251d;
+      --color-text-muted: #66645e;
+      --color-text-faint: #95928b;
+      --color-text-inverse: #f9f8f4;
+      --color-primary: #01696f;
+      --color-primary-hover: #0c4e54;
+      --color-primary-highlight: #cedcd8;
+      --shadow-sm: 0 1px 2px rgb(24 24 24 / 0.06);
+      --shadow-md: 0 10px 30px rgb(24 24 24 / 0.08);
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+      --radius-xl: 1rem;
+      --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+      --content-default: 1100px;
+      --font-body: 'General Sans', system-ui, sans-serif;
+      --font-display: 'Zodiak', Georgia, serif;
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #171614;
+      --color-surface: #1c1b19;
+      --color-surface-2: #201f1d;
+      --color-surface-offset: #22211f;
+      --color-border: #393836;
+      --color-divider: #262523;
+      --color-text: #e2e0dc;
+      --color-text-muted: #b1aea7;
+      --color-text-faint: #7f7c76;
+      --color-text-inverse: #171614;
+      --color-primary: #58a4ae;
+      --color-primary-hover: #72b9c1;
+      --color-primary-highlight: #313b3b;
+      --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.2);
+      --shadow-md: 0 14px 34px rgb(0 0 0 / 0.35);
+    }
+
+    * , *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100dvh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.6;
+      color: var(--color-text);
+      background: var(--color-bg);
+    }
+    img { display: block; max-width: 100%; height: auto; border-radius: calc(var(--radius-xl) + 0.25rem); }
+    a, button, input, textarea {
+      transition: color var(--transition-interactive), background var(--transition-interactive), border-color var(--transition-interactive), box-shadow var(--transition-interactive), transform var(--transition-interactive);
+    }
+    a { color: inherit; }
+    button { cursor: pointer; }
+    .skip-link {
+      position: absolute; left: -999px; top: 0;
+      background: var(--color-primary); color: var(--color-text-inverse);
+      padding: var(--space-3) var(--space-4); z-index: 100;
+    }
+    .skip-link:focus { left: var(--space-4); top: var(--space-4); }
+    .container { width: min(100% - 2rem, var(--content-default)); margin: 0 auto; }
+    .site-header {
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(14px);
+      background: color-mix(in srgb, var(--color-bg) 88%, transparent);
+      border-bottom: 1px solid color-mix(in srgb, var(--color-text) 12%, transparent);
+    }
+    .site-header__row {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: var(--space-4); min-height: 72px;
+    }
+    .brand { display: flex; align-items: center; gap: var(--space-3); text-decoration: none; }
+    .brand-mark { width: 40px; height: 40px; color: var(--color-primary); }
+    .brand-title { font-size: var(--text-sm); font-weight: 700; letter-spacing: 0.02em; }
+    .brand-subtitle { color: var(--color-text-muted); font-size: var(--text-xs); }
+    .theme-toggle {
+      min-width: 44px; min-height: 44px; border: 1px solid color-mix(in srgb, var(--color-text) 12%, transparent);
+      border-radius: var(--radius-full, 9999px); background: var(--color-surface);
+      color: var(--color-text);
+      display: inline-flex; align-items: center; justify-content: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .hero { padding: clamp(var(--space-8), 8vw, var(--space-16)) 0 var(--space-8); }
+    .hero-grid {
+      display: grid; gap: var(--space-8);
+      align-items: center;
+    }
+    .eyebrow {
+      display: inline-flex; gap: var(--space-2); align-items: center;
+      padding: 0.45rem 0.75rem; border-radius: 9999px;
+      background: var(--color-primary-highlight); color: var(--color-primary);
+      font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    h1, h2 { font-family: var(--font-display); line-height: 1.08; margin: 0; }
+    h1 { font-size: var(--text-2xl); margin-top: var(--space-4); max-width: 12ch; }
+    h2 { font-size: var(--text-xl); margin-bottom: var(--space-4); }
+    p { margin: 0; max-width: 68ch; }
+    .hero-copy p { color: var(--color-text-muted); margin-top: var(--space-4); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-6); }
+    .button {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 48px; padding: 0.85rem 1.1rem; border-radius: 9999px;
+      border: 1px solid transparent; text-decoration: none; font-weight: 600; font-size: var(--text-sm);
+    }
+    .button-primary { background: var(--color-primary); color: var(--color-text-inverse); }
+    .button-primary:hover { background: var(--color-primary-hover); transform: translateY(-1px); }
+    .button-secondary {
+      background: var(--color-surface); color: var(--color-text);
+      border-color: color-mix(in srgb, var(--color-text) 12%, transparent);
+    }
+    .button-secondary:hover { background: var(--color-surface-offset); }
+    .hero-card, .panel, .bank-card, .form-card, .trust-card, .sponsor-wall {
+      background: var(--color-surface);
+      border: 1px solid color-mix(in srgb, var(--color-text) 12%, transparent);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+    }
+    .hero-card { overflow: hidden; }
+    .hero-card__meta {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px;
+      background: var(--color-divider);
+    }
+    .hero-card__meta div { background: var(--color-surface-2); padding: var(--space-4); }
+    .meta-label { font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.05em; color: var(--color-text-muted); }
+    .meta-value { font-size: var(--text-lg); font-weight: 700; margin-top: var(--space-2); }
+    .section { padding: var(--space-8) 0; }
+    .section-grid { display: grid; gap: var(--space-6); }
+    .steps { display: grid; gap: var(--space-4); }
+    .step {
+      padding: var(--space-5); background: var(--color-surface-2);
+      border-radius: var(--radius-lg); border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+    }
+    .step-number {
+      width: 32px; height: 32px; border-radius: 9999px; display: inline-flex; align-items: center; justify-content: center;
+      background: var(--color-primary-highlight); color: var(--color-primary); font-size: var(--text-xs); font-weight: 700; margin-bottom: var(--space-3);
+    }
+    .two-col { display: grid; gap: var(--space-6); }
+    .bank-card, .form-card, .trust-card, .sponsor-wall, .panel { padding: var(--space-6); }
+    .bank-row {
+      display: flex; justify-content: space-between; gap: var(--space-4);
+      padding: var(--space-3) 0; border-bottom: 1px solid var(--color-divider);
+    }
+    .bank-row:last-child { border-bottom: 0; }
+    .label { color: var(--color-text-muted); }
+    .value { font-weight: 700; text-align: right; }
+    .helper { color: var(--color-text-muted); margin-top: var(--space-4); }
+    .highlight-box {
+      margin-top: var(--space-5); padding: var(--space-4); border-radius: var(--radius-lg);
+      background: var(--color-surface-offset);
+    }
+    form { display: grid; gap: var(--space-4); }
+    .form-grid { display: grid; gap: var(--space-4); }
+    label { font-size: var(--text-sm); font-weight: 600; }
+    input, textarea {
+      width: 100%; margin-top: var(--space-2); border-radius: var(--radius-md);
+      border: 1px solid color-mix(in srgb, var(--color-text) 16%, transparent);
+      background: var(--color-surface-2); color: var(--color-text);
+      padding: 0.9rem 1rem; font-size: var(--text-base);
+    }
+    textarea { min-height: 120px; resize: vertical; }
+    input:focus-visible, textarea:focus-visible, button:focus-visible, a:focus-visible {
+      outline: 2px solid var(--color-primary); outline-offset: 3px;
+    }
+    .fine-print { font-size: var(--text-xs); color: var(--color-text-muted); }
+    .sponsor-list { display: grid; gap: var(--space-3); margin-top: var(--space-4); }
+    .sponsor-item {
+      display: flex; justify-content: space-between; gap: var(--space-4); align-items: center;
+      padding: var(--space-4); border-radius: var(--radius-lg);
+      background: var(--color-surface-2); border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+    }
+    .sponsor-item strong { font-size: var(--text-base); }
+    .pill {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      padding: 0.35rem 0.65rem; border-radius: 9999px;
+      background: var(--color-primary-highlight); color: var(--color-primary); font-size: var(--text-xs); font-weight: 700;
+    }
+    .footer {
+      padding: var(--space-8) 0 var(--space-10);
+      color: var(--color-text-muted);
+    }
+    .success-note {
+      display: none; padding: var(--space-4); border-radius: var(--radius-lg);
+      background: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface));
+      color: var(--color-text);
+      border: 1px solid color-mix(in srgb, var(--color-primary) 20%, transparent);
+    }
+    .success-note.show { display: block; }
+
+    @media (min-width: 860px) {
+      .hero-grid { grid-template-columns: 1.1fr 0.9fr; }
+      .two-col { grid-template-columns: 0.9fr 1.1fr; }
+      .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .form-grid .full { grid-column: 1 / -1; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#content" class="skip-link">Skip to content</a>
+  <header class="site-header">
+    <div class="container site-header__row">
+      <a class="brand" href="#top" aria-label="Sponsor page home">
+        <svg class="brand-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="32" cy="32" r="25" stroke="currentColor" stroke-width="4"/>
+          <path d="M20 38C24 32 28 28 32 28C36 28 40 32 44 38" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+          <path d="M24 22H40" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <div>
+          <div class="brand-title">{{TEAM_NAME}}</div>
+          <div class="brand-subtitle">Sponsor page for {{PLAYER_NAME}}</div>
+        </div>
+      </a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero container" id="top">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Supporter fundraiser</span>
+          <h1>Sponsor {{PLAYER_NAME}} for {{TEAM_NAME}}</h1>
+          <p>We’re raising funds to help cover tournament, travel, and team costs. Every sponsor helps, and every contribution moves us closer to the goal.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#sponsor-form">Sponsor now</a>
+            <a class="button button-secondary" href="#bank-details">View bank details</a>
+          </div>
+        </div>
+
+        <article class="hero-card">
+          <img src="assets/player-photo.jpg" alt="{{PLAYER_NAME}} representing {{TEAM_NAME}}" width="1200" height="900" loading="eager">
+          <div class="hero-card__meta">
+            <div>
+              <div class="meta-label">Goal</div>
+              <div class="meta-value">{{GOAL_AMOUNT}}</div>
+            </div>
+            <div>
+              <div class="meta-label">Raised so far</div>
+              <div class="meta-value">$1,240</div>
+            </div>
+            <div>
+              <div class="meta-label">Closing date</div>
+              <div class="meta-value">{{DEADLINE}}</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container section-grid">
+        <div class="panel">
+          <h2>Thank you for supporting {{PLAYER_NAME}}</h2>
+          <p>Please make your transfer using the details below, then complete the sponsor form so we can match your name and amount correctly.</p>
+        </div>
+        <div class="steps" aria-label="How sponsorship works">
+          <article class="step">
+            <div class="step-number">1</div>
+            <h3>Make your transfer</h3>
+            <p>Use the bank account and payment reference shown below.</p>
+          </article>
+          <article class="step">
+            <div class="step-number">2</div>
+            <h3>Complete the sponsor form</h3>
+            <p>Enter the sponsor name you want displayed, the amount paid, and your transfer date.</p>
+          </article>
+          <article class="step">
+            <div class="step-number">3</div>
+            <h3>We match and update</h3>
+            <p>The parent group matches your form entry with the bank transfer and updates the sponsor list.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="bank-details">
+      <div class="container two-col">
+        <article class="bank-card">
+          <h2>Bank transfer details</h2>
+          <div class="bank-row"><span class="label">Account name</span><span class="value">{{BANK_ACCOUNT_NAME}}</span></div>
+          <div class="bank-row"><span class="label">Account number</span><span class="value">{{BANK_ACCOUNT_NUMBER}}</span></div>
+          <div class="bank-row"><span class="label">Reference</span><span class="value">{{PAYMENT_REFERENCE}}</span></div>
+          <div class="bank-row"><span class="label">Closing date</span><span class="value">{{DEADLINE}}</span></div>
+          <p class="helper">After making your transfer, please complete the form with the sponsor name you would like displayed and the amount paid.</p>
+          <div class="highlight-box">
+            <span class="pill">Tip</span>
+            <p style="margin-top: 0.75rem;">Use the same sponsor name in the form as the name you want shown on the supporter list.</p>
+          </div>
+        </article>
+
+        <article class="form-card" id="sponsor-form">
+          <h2>Sponsor form</h2>
+          <p class="helper">Replace the sample form action below with your Formspree or Netlify setup before publishing.</p>
+          <div class="success-note" id="successNote">Thanks — your sponsor details have been submitted. We’ll match them to the transfer and update the supporter list.</div>
+          <form action="https://formspree.io/f/your-form-id" method="POST" id="sponsorForm">
+            <input type="hidden" name="_subject" value="New sponsor submission for {{PLAYER_NAME}}">
+            <div class="form-grid">
+              <label>
+                Sponsor name
+                <input type="text" name="sponsor_name" required placeholder="e.g. Smith Family">
+              </label>
+              <label>
+                Amount paid
+                <input type="number" name="amount_paid" min="1" step="0.01" required placeholder="e.g. 50">
+              </label>
+              <label>
+                Transfer date
+                <input type="date" name="transfer_date" required>
+              </label>
+              <label>
+                Email or mobile
+                <input type="text" name="contact_detail" placeholder="Optional, for matching issues only">
+              </label>
+              <label class="full">
+                Message for {{PLAYER_NAME}}
+                <textarea name="message" placeholder="Optional encouragement or note"></textarea>
+              </label>
+            </div>
+            <button class="button button-primary" type="submit">Submit sponsor details</button>
+            <p class="fine-print">This form records your sponsor details only. Payment is made separately by bank transfer.</p>
+          </form>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container two-col">
+        <article class="sponsor-wall">
+          <h2>Supporter wall</h2>
+          <p class="helper">Update this section manually as payments are confirmed.</p>
+          <div class="sponsor-list">
+            <div class="sponsor-item"><strong>Smith Family</strong><span>$100</span></div>
+            <div class="sponsor-item"><strong>Jones Builders</strong><span>$250</span></div>
+            <div class="sponsor-item"><strong>Nana & Pop</strong><span>$75</span></div>
+            <div class="sponsor-item"><strong>Team Supporter</strong><span>$40</span></div>
+          </div>
+        </article>
+
+        <article class="trust-card">
+          <h2>How the funds are handled</h2>
+          <p>This fundraiser is being coordinated by the {{TEAM_NAME}} parent group. Funds are being collected into the account shown on this page and will be transferred in full to the team account after the fundraiser closes.</p>
+          <p class="helper" style="margin-top: 1rem;">Organiser contact: {{ORGANISER_NAME}} · <a href="mailto:{{ORGANISER_EMAIL}}">{{ORGANISER_EMAIL}}</a></p>
+          <div class="highlight-box">
+            <span class="pill">Transparency</span>
+            <p style="margin-top: 0.75rem;">Update the raised total, sponsor wall, and close date message regularly so supporters can see that the fundraiser is active and genuine.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>This page was created to give supporters one clear place to sponsor {{PLAYER_NAME}}, view payment details, and submit sponsor information.</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const toggle = document.querySelector('[data-theme-toggle]');
+      const root = document.documentElement;
+      let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      function icon(mode) {
+        return mode === 'dark'
+          ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+          : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+      }
+      function applyTheme(mode) {
+        root.setAttribute('data-theme', mode);
+        toggle.setAttribute('aria-label', 'Switch to ' + (mode === 'dark' ? 'light' : 'dark') + ' mode');
+        toggle.innerHTML = icon(mode);
+      }
+      applyTheme(theme);
+      toggle.addEventListener('click', function () {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        applyTheme(theme);
+      });
+
+      const form = document.getElementById('sponsorForm');
+      const successNote = document.getElementById('successNote');
+      form.addEventListener('submit', function () {
+        successNote.classList.add('show');
+      });
+    })();
+  </script>
+</body>
+</html>

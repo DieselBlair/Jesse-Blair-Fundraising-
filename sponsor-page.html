@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sponsor {{PLAYER_NAME}} | {{TEAM_NAME}}</title>
-  <meta name="description" content="Sponsor {{PLAYER_NAME}} for {{TEAM_NAME}}. View the fundraiser goal, bank transfer details, and sponsor form in one place.">
+  <title>Sponsor {{Jesse Blair}} | {{Christchurch Rugby Club Year 8's}}</title>
+  <meta name="description" content="Sponsor {{Jesse Blair}} for {{CFC Year 8 Mana'}}. View the fundraiser goal, bank transfer details, and sponsor form in one place.">
   <link rel="preconnect" href="https://api.fontshare.com">
   <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=zodiak@500,700&display=swap" rel="stylesheet">
   <style>
@@ -232,8 +232,8 @@
           <path d="M24 22H40" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
         </svg>
         <div>
-          <div class="brand-title">{{TEAM_NAME}}</div>
-          <div class="brand-subtitle">Sponsor page for {{PLAYER_NAME}}</div>
+          <div class="brand-title">{{CFC Year 8 Mana}}</div>
+          <div class="brand-subtitle">Sponsor page for {{Jesse Blair}}</div>
         </div>
       </a>
       <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">
@@ -247,7 +247,7 @@
       <div class="hero-grid">
         <div class="hero-copy">
           <span class="eyebrow">Supporter fundraiser</span>
-          <h1>Sponsor {{PLAYER_NAME}} for {{TEAM_NAME}}</h1>
+          <h1>Sponsor {{Jesse Blair}} for {{CFC Year 8 Mana}}</h1>
           <p>We’re raising funds to help cover tournament, travel, and team costs. Every sponsor helps, and every contribution moves us closer to the goal.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#sponsor-form">Sponsor now</a>
@@ -256,19 +256,19 @@
         </div>
 
         <article class="hero-card">
-          <img src="assets/player-photo.jpg" alt="{{PLAYER_NAME}} representing {{TEAM_NAME}}" width="1200" height="900" loading="eager">
+          <img src="assets/player-photo.jpg" alt="{{Jesse Blair}} representing {{CFC Year 8 Mana}}" width="1200" height="900" loading="eager">
           <div class="hero-card__meta">
             <div>
               <div class="meta-label">Goal</div>
-              <div class="meta-value">{{GOAL_AMOUNT}}</div>
+              <div class="meta-value">{{$850}}</div>
             </div>
             <div>
               <div class="meta-label">Raised so far</div>
-              <div class="meta-value">$1,240</div>
+              <div class="meta-value">$120</div>
             </div>
             <div>
               <div class="meta-label">Closing date</div>
-              <div class="meta-value">{{DEADLINE}}</div>
+              <div class="meta-value">{{5th July}</div>
             </div>
           </div>
         </article>
@@ -278,7 +278,7 @@
     <section class="section">
       <div class="container section-grid">
         <div class="panel">
-          <h2>Thank you for supporting {{PLAYER_NAME}}</h2>
+          <h2>Thank you for supporting {{Jesse Blair}}</h2>
           <p>Please make your transfer using the details below, then complete the sponsor form so we can match your name and amount correctly.</p>
         </div>
         <div class="steps" aria-label="How sponsorship works">
@@ -305,10 +305,10 @@
       <div class="container two-col">
         <article class="bank-card">
           <h2>Bank transfer details</h2>
-          <div class="bank-row"><span class="label">Account name</span><span class="value">{{BANK_ACCOUNT_NAME}}</span></div>
-          <div class="bank-row"><span class="label">Account number</span><span class="value">{{BANK_ACCOUNT_NUMBER}}</span></div>
-          <div class="bank-row"><span class="label">Reference</span><span class="value">{{PAYMENT_REFERENCE}}</span></div>
-          <div class="bank-row"><span class="label">Closing date</span><span class="value">{{DEADLINE}}</span></div>
+          <div class="bank-row"><span class="label">Account name</span><span class="value">{{D M BLAIR}}</span></div>
+          <div class="bank-row"><span class="label">Account number</span><span class="value">{{38-9012-0674492-00}}</span></div>
+          <div class="bank-row"><span class="label">Reference</span><span class="value">{{Jesse GYB}}</span></div>
+          <div class="bank-row"><span class="label">Closing date</span><span class="value">{{5th July}}</span></div>
           <p class="helper">After making your transfer, please complete the form with the sponsor name you would like displayed and the amount paid.</p>
           <div class="highlight-box">
             <span class="pill">Tip</span>
@@ -321,7 +321,7 @@
           <p class="helper">Replace the sample form action below with your Formspree or Netlify setup before publishing.</p>
           <div class="success-note" id="successNote">Thanks — your sponsor details have been submitted. We’ll match them to the transfer and update the supporter list.</div>
           <form action="https://formspree.io/f/your-form-id" method="POST" id="sponsorForm">
-            <input type="hidden" name="_subject" value="New sponsor submission for {{PLAYER_NAME}}">
+            <input type="hidden" name="_subject" value="New sponsor submission for {{Jesse Blair}">
             <div class="form-grid">
               <label>
                 Sponsor name
@@ -340,7 +340,7 @@
                 <input type="text" name="contact_detail" placeholder="Optional, for matching issues only">
               </label>
               <label class="full">
-                Message for {{PLAYER_NAME}}
+                Message for {{Jesse Blair}
                 <textarea name="message" placeholder="Optional encouragement or note"></textarea>
               </label>
             </div>
@@ -366,8 +366,8 @@
 
         <article class="trust-card">
           <h2>How the funds are handled</h2>
-          <p>This fundraiser is being coordinated by the {{TEAM_NAME}} parent group. Funds are being collected into the account shown on this page and will be transferred in full to the team account after the fundraiser closes.</p>
-          <p class="helper" style="margin-top: 1rem;">Organiser contact: {{ORGANISER_NAME}} · <a href="mailto:{{ORGANISER_EMAIL}}">{{ORGANISER_EMAIL}}</a></p>
+          <p>This fundraiser is being coordinated by the {{CFC Year 8 Mana}} parent group. Funds are being collected into the account shown on this page and will be transferred in full to the team account after the fundraiser closes.</p>
+          <p class="helper" style="margin-top: 1rem;">Organiser contact: {{CFC Fundraising Committee}} · <a href="mailto:{{dion.blairdunedin@outlook.com}}">{{dion.blairdunedin@outlook.com}}</a></p>
           <div class="highlight-box">
             <span class="pill">Transparency</span>
             <p style="margin-top: 0.75rem;">Update the raised total, sponsor wall, and close date message regularly so supporters can see that the fundraiser is active and genuine.</p>
@@ -379,7 +379,7 @@
 
   <footer class="footer">
     <div class="container">
-      <p>This page was created to give supporters one clear place to sponsor {{PLAYER_NAME}}, view payment details, and submit sponsor information.</p>
+      <p>This page was created to give supporters one clear place to sponsor {{Jesse Blair}}, view payment details, and submit sponsor information.</p>
     </div>
   </footer>
 

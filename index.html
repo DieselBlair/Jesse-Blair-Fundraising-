@@ -7,7 +7,13 @@
   <meta name="description" content="Sponsor Jesse Blair for CFC Year 8 Mana. View the fundraiser goal, bank transfer details, and sponsor form in one place.">
   <link rel="preconnect" href="https://api.fontshare.com">
   <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=zodiak@500,700&display=swap" rel="stylesheet">
-  <style>
+  .brand-crest {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 0;
+  flex-shrink: 0;
+}  <style>
     :root, [data-theme="light"] {
       --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
       --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
@@ -252,8 +258,7 @@
         </div>
 
         <article class="hero-card">
-          <img src="./player-photo.jpg" alt="Photo of Jesse-Blair" width="1200" height="900" loading="eager">
-         loading="eager">
+          <img src="./player-photo.jpg" alt="Photo of Jesse Blair" width="1200" height="900" loading="eager">
           <div class="hero-card__meta">
             <div>
               <div class="meta-label">Goal</div>
@@ -315,7 +320,7 @@
 
         <article class="form-card" id="sponsor-form">
           <h2>Sponsor form</h2>
-          <p class="helper">Replace the sample form action below with your Formspree or Netlify setup before publishing.</p>
+          <p class="helper">Complete this form after making your bank transfer so we can match your sponsor details correctly.</p>
           <div class="success-note" id="successNote">Thanks — your sponsor details have been submitted. We’ll match them to the transfer and update the supporter list.</div>
           <form action="https://formspree.io/f/your-form-id" method="POST" id="sponsorForm">
             <input type="hidden" name="_subject" value="New sponsor submission for Jesse Blair">
